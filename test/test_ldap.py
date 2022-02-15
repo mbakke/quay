@@ -666,8 +666,14 @@ class TestLDAP(unittest.TestCase):
         memberof_attr = "strangeMemberOf"
         with mock_ldap():
             ldap = LDAPUsers(
-                "ldap://localhost", base_dn, admin_dn, admin_passwd, user_rdn,
-                uid_attr, email_attr, memberof_attr
+                "ldap://localhost",
+                base_dn,
+                admin_dn,
+                admin_passwd,
+                user_rdn,
+                uid_attr,
+                email_attr,
+                memberof_attr,
             )
             (result, err) = ldap.check_group_lookup_args(
                 {"group_dn": "cn=StrangeFolk"}, disable_pagination=True
